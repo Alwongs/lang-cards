@@ -1,0 +1,172 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+a, a:link, a:visited {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+aside, nav, footer, header, section, main {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button, input[type=submit] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+/* ---- screen sizes ---- */
+/* ---- colors ---- */
+.header__title {
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 auto 20px;
+  padding: 20px 0;
+}
+
+.main__container {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.top-panel {
+  background-color: #20867e;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+  height: 50px;
+  padding: 0 30px;
+}
+.top-panel__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+}
+.top-panel a {
+  color: white;
+}
+.top-panel__home-link {
+  text-transform: capitalize;
+}
+@media (max-width: 767px) {
+  .top-panel__home-link {
+    display: none;
+  }
+}
+.top-panel__menu-link {
+  display: none;
+}
+@media (max-width: 767px) {
+  .top-panel__menu-link {
+    display: block;
+    cursor: pointer;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .top-panel {
+    padding: 0 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .top-panel {
+    padding: 0 15px;
+  }
+}
+@media (max-width: 767px) {
+  .top-panel {
+    padding: 0 10px;
+  }
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.dashboard-nav__link {
+  display: block;
+  flex: 1 1 50%;
+  border: 1px solid rgb(33, 57, 136);
+  color: rgb(33, 57, 136);
+  max-width: 500px;
+  margin: 0 auto;
+  height: 75px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

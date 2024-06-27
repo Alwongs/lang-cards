@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Site\HomeController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LanguageController;
+use App\Http\Controllers\Admin\PhraseController;
+use App\Http\Controllers\Admin\TranslationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+
+Route::middleware('auth')->group(function () {
+    
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resources([ 
+        'languages' => LanguageController::class,
+        'phrases' => PhraseController::class,
+        'translations' => TranslationController::class,
+    ]);
+
 });
+
+
+require __DIR__.'/auth.php';

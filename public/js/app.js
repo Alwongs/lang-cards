@@ -5460,10 +5460,12 @@ module.exports = {
 
 var appNote = document.getElementById('app-note');
 var closeNoteBtn = document.getElementById('app-note-close-btn');
-closeNoteBtn.addEventListener('click', function () {
-  appNote.querySelector('#app-note-window').classList.remove('display');
-  appNote.classList.remove('display');
-});
+if (closeNoteBtn) {
+  closeNoteBtn.addEventListener('click', function () {
+    appNote.querySelector('#app-note-window').classList.remove('display');
+    appNote.classList.remove('display');
+  });
+}
 
 /***/ }),
 

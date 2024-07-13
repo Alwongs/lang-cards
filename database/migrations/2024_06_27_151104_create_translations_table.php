@@ -15,8 +15,8 @@ class CreateTranslationsTable extends Migration
     {
         Schema::create('translations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('language_id')->constrained('languages');
-            $table->foreignId('phrase_id')->constrained('phrases');
+            $table->foreignId('language_id')->constrained('languages')->onDelete('cascade');
+            $table->foreignId('phrase_id')->constrained('phrases')->onDelete('cascade');
             $table->text('translation');
             $table->unique(['language_id', 'phrase_id']);
             $table->timestamps();

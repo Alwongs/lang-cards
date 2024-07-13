@@ -10,4 +10,9 @@ class Language extends Model
     use HasFactory;
 
     protected $fillable = ['code', 'name'];
+
+    public function translations()
+    {
+        return $this->hasMany(Translation::class);
+    }
 }

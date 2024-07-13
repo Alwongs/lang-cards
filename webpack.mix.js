@@ -14,7 +14,8 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/site/app.scss', 'public/css/site')
     .sass('resources/sass/admin/app.scss', 'public/css/admin')
+    .sass('resources/sass/auth/app.scss', 'public/css/auth')
     .postCss('resources/css/app.css', 'public/css/auth', [
-        require('tailwindcss'),
+        // require('tailwindcss'),
         require('autoprefixer'),
     ]);

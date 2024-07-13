@@ -1,0 +1,34 @@
+.header {
+    &__title {
+        font-size: 32px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0 auto;
+        padding: 30px 0; 
+        color: #005586;
+    }
+    &__description {
+        color: rgb(162, 179, 185);
+        font-style: italic;
+        text-align: center;
+    }
+}
+
+.main {
+    padding: 0 30px;
+    &__container {
+        max-width: 800px;
+        height: 100%;
+        margin: 0 auto;        
+    } 
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        padding: 0 20px;
+    }     
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+        padding: 0 15px;
+    }           
+    @media (max-width: $mobile-max) {  
+        padding: 0 10px; 
+    }       
+}

@@ -1,0 +1,25 @@
+.btn-block {
+    // border: 1px solid blue;
+    display: flex;
+    &.flex-center {
+        justify-content: center;
+    }
+    &.flex-between {
+        justify-content: space-between;
+    }
+}
+
+.btn {
+    border: 1px solid rgb(44, 143, 44);
+    color: rgb(2, 85, 2);
+    font-size: 20px;
+    width: 140px;
+    min-width: fit-content;
+    padding: 0 10px;
+    height: 50px;
+    &:hover {
+        background-color: rgb(44, 143, 44);
+        border: 1px solid rgb(44, 143, 44);
+        color: white;        
+    }
+}

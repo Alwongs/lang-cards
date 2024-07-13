@@ -38,7 +38,12 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $language = $request->all();
+        $language['code'] = strtoupper($language['code']);
+        
+        Language::create($language);
+
+        return redirect()->back()->with('info', 'Language created');
     }
 
     /**
@@ -83,6 +88,12 @@ class LanguageController extends Controller
      */
     public function destroy(Language $language)
     {
-        //
+        if ($language->code == "EN") {
+            return redirect()->back()->with('status', 'English is a reserve language!');
+        }
+
+        $language->delete();
+
+        return redirect()->back()->with('info', 'language deleted');
     }
 }

@@ -1,0 +1,64 @@
+.top-panel {
+    background-color: #005586;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+    height: 50px;
+    padding: 0 30px;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 800px;
+        height: 100%;
+        margin: 0 auto;
+    }
+    a {
+        color: white;
+    }
+    a:hover {
+        color: yellow;
+    }
+    &__home-link {    
+        text-transform: uppercase;
+        @media (max-width: $mobile-max) {  
+            display: none;   
+        }          
+    }
+    &__menu-link {
+        display: none;          
+        @media (max-width: $mobile-max) {  
+            display: block;
+            cursor: pointer;
+        }   
+    }
+
+    &__navigation {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        @media (max-width: $mobile-max) {  
+            display: none;         
+        }  
+    }
+    &__navigation-link {
+        letter-spacing: 1px;
+        transition: .1s ease-in-out;
+    } 
+    &__navigation-link:hover {
+        color: yellow;
+        margin-top: 5px;
+    }       
+    &__navigation-link.active {
+        color: yellow;
+    }
+
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        padding: 0 20px;
+    }     
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+        padding: 0 15px;
+    }           
+    @media (max-width: $mobile-max) {  
+        padding: 0 10px; 
+    }      
+}

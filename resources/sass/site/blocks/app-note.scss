@@ -1,0 +1,42 @@
+.app-note-wrapper {
+    z-index: -1;
+    background-color: rgba(18, 26, 23, 0);
+    position: fixed;
+    left:0; right:0; top:0; bottom:0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: .2s ease-in-out;
+    &.display {
+        z-index: 1;
+        background-color: rgba(18, 26, 23, 0.5);
+    }
+}
+
+.app-note {
+    position: relative;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background-color: #fff;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s ease-in-out;
+    &.display {
+        opacity: 1;
+        width: 350px;
+        height: 200px;
+    }
+
+    &__close-btn {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 18px;
+        line-height: 12px;
+        cursor: pointer;
+    }
+}

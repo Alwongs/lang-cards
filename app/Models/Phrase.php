@@ -11,8 +11,9 @@ class Phrase extends Model
 
     protected $fillable = ['phrase_key', 'default_translation'];
 
-    public function translation()
+    public function translations()
     {
-        return $this->hasOne(Translation::class);
+        return $this->hasMany(Translation::class);
     }
+
 }

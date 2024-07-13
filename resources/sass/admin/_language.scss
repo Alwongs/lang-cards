@@ -1,0 +1,46 @@
+.language-list {
+    // border: 1px solid red;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.language-list-item {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+
+    &__code {
+        flex: 0 0 40px;
+        text-transform: uppercase;
+    }
+    &__name {
+        flex: 1 1 auto;
+        text-transform: capitalize;
+    }
+    &__translation {
+        input {
+            border: 1px solid blue;
+            height: 28px;
+            padding-left: 5px;
+        }
+    }    
+    &__action {
+        flex: 0 0 50px;
+    }
+}
+
+.add-language-block {
+    // border: 1px solid red;
+    padding-top: 30px;
+}
+
+.add-lang-opener {
+    &.hidden {
+        display: none;
+    }    
+}
+.add-lang-block-wrapper {
+    &.hidden {
+        display: none;
+    }
+}

@@ -1,0 +1,15 @@
+
+
+.home-navigation {
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 50px;
+    max-width: 500px;
+    margin: 0 auto 30px;
+         
+    @media (max-width: $mobile-max) {  
+        max-width: 100%;         
+    }  
+}

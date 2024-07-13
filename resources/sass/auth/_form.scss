@@ -1,0 +1,52 @@
+.auth-wrapper {
+    position: absolute;
+    left:0; right:0; top:0; bottom:0;
+    background-color: rgba(35, 76, 83, 0.795);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-form {
+    width: 400px;
+    background-color: white;
+    padding: 20px 20px 20px;
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    @media (max-width: $mobile-max) {  
+        width: 100%; 
+    } 
+    div:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    &__remember-me {
+        input {
+            outline: 1px solid rgb(21, 64, 156);
+            width: 20px;
+            height: 20px;
+        }
+        label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+ 
+}
+
+
+
+
+// .input-block {
+//     border-bottom: 1px solid rgb(21, 64, 156);
+//     height: 30px;
+//     width: 100%;
+
+//     input {
+//         width: 100%;
+//         height: 100%;
+//         padding-left: 10px;
+//         font-size: 18px;
+//     }
+// }

@@ -16,15 +16,14 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body>
-        <div class="wrapper">
-            @include('layouts.top-panel')
 
-            <header class="header">
-                <h1 class="header__title">
-                    {{ $header }}
-                </h1>
-            </header>
+    <body>
+        @include('layouts.site.menu-panel')
+        @include('layouts.site.auth-panel')
+        @include('blocks.app-note')        
+        
+        <div class="wrapper">
+            @include('layouts.site.top-panel')
 
             <main class="main">
                 <div class="main__container">

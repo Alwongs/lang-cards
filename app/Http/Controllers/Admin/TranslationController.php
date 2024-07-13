@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Translation;
 
 class TranslationController extends Controller
 {
@@ -35,7 +36,11 @@ class TranslationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $translation = $request->all();
+
+        Translation::create($translation);
+
+        return redirect()->back()->with('info', 'translation created');
     }
 
     /**
@@ -67,9 +72,14 @@ class TranslationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Translation $translation)
     {
-        //
+        $translation->language_id = $request->language_id;
+        $translation->phrase_id = $request->phrase_id;
+        $translation->translation = $request->translation;
+        $translation->update();
+
+        return redirect()->back()->with('info', 'translation updated');
     }
 
     /**

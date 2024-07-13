@@ -2,10 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\HomeController;
+use App\Http\Controllers\Site\CardController;
+use App\Http\Controllers\Site\ReserveController;
+
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\PhraseController;
 use App\Http\Controllers\Admin\TranslationController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +25,9 @@ use App\Http\Controllers\Admin\TranslationController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/cards', [CardController::class, 'index'])->name('cards');
+Route::get('/reserve', [ReserveController::class, 'index'])->name('reserve');
 
 
 

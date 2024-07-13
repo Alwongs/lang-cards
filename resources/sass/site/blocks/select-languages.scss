@@ -1,0 +1,49 @@
+.select-languages {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        gap: 20px;
+    }     
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+        gap: 20px;
+    }           
+    @media (max-width: $mobile-max) {     
+        gap: 50px;
+    }  
+
+    &__title {
+        font-size: 20px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    &__select-block {
+        flex: 0 1 200px;
+
+    }
+    label {
+        font-size: 15px;
+        margin-right: 12px;
+    }
+    select {
+        font-size: 18px;
+        font-weight: 600;
+        border-bottom: 1px solid #208179;
+        height: 30px;
+        width: 130px;
+        color: #208179;
+    }
+    &__btn {
+        background-color: #208179;
+        color: white;
+        padding: 0 20px;
+        height: 30px;
+        transition: 0.2s;
+        &:hover {
+            background-color: #2ba198;
+        }
+    }    
+}

@@ -1,5 +1,22 @@
-@import "reset";
 @import "variables";
-@import "common";
+
+@import "../common/fonts";
+@import "../common/reset";
+@import "../common/blocks/notification.scss";
+
 @import "top-panel";
-@import "dashboard";
+@import "menu-panel";
+@import "auth-panel";
+
+@import "common";
+@import "components";
+
+@import "home";
+@import "form";
+@import "btn";
+@import "cards";
+@import "phrase";
+
+@import "blocks/select-languages.scss";
+@import "blocks/card-progress-bar.scss";
+@import "blocks/app-note.scss";

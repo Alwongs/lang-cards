@@ -5452,6 +5452,21 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./resources/js/app-note.js":
+/*!**********************************!*\
+  !*** ./resources/js/app-note.js ***!
+  \**********************************/
+/***/ (() => {
+
+var appNote = document.getElementById('app-note');
+var closeNoteBtn = document.getElementById('app-note-close-btn');
+closeNoteBtn.addEventListener('click', function () {
+  appNote.querySelector('#app-note-window').classList.remove('display');
+  appNote.classList.remove('display');
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -5462,9 +5477,47 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./app-note */ "./resources/js/app-note.js");
+__webpack_require__(/*! ./card */ "./resources/js/card.js");
+__webpack_require__(/*! ./lang */ "./resources/js/lang.js");
+__webpack_require__(/*! ./phrase */ "./resources/js/phrase.js");
+__webpack_require__(/*! ./menu-panel */ "./resources/js/menu-panel.js");
+__webpack_require__(/*! ./auth-panel */ "./resources/js/auth-panel.js");
+__webpack_require__(/*! ./notification */ "./resources/js/notification.js");
+__webpack_require__(/*! ./translation */ "./resources/js/translation.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
+
+/***/ }),
+
+/***/ "./resources/js/auth-panel.js":
+/*!************************************!*\
+  !*** ./resources/js/auth-panel.js ***!
+  \************************************/
+/***/ (() => {
+
+var authBtn = document.getElementById("top-panel-auth-opener");
+var authPanel = document.getElementById("auth-panel");
+var authBtnCloser = document.getElementById("auth-panel-closer");
+if (authBtn) {
+  authBtn.addEventListener('click', function () {
+    if (authPanel.classList.contains("opened")) {
+      authPanel.classList.remove('opened');
+    } else {
+      authPanel.classList.add('opened');
+    }
+  });
+}
+if (authBtnCloser) {
+  authBtnCloser.addEventListener('click', function () {
+    if (authPanel.classList.contains("opened")) {
+      authPanel.classList.remove('opened');
+    } else {
+      authPanel.classList.add('opened');
+    }
+  });
+}
 
 /***/ }),
 
@@ -5501,6 +5554,173 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/card.js":
+/*!******************************!*\
+  !*** ./resources/js/card.js ***!
+  \******************************/
+/***/ (() => {
+
+var cardsCount = 9;
+var progress = document.querySelector('.card-progress-bar__fill');
+var appNote = document.getElementById('app-note');
+var progressWidth = 0;
+document.querySelectorAll('.card').forEach(function (card) {
+  var translationArray = card.querySelector('.back').innerHTML.trim().toLowerCase().split(",");
+  card.addEventListener('keydown', function (e) {
+    if (e.keyCode === 13) {
+      rotateCard(card, translationArray);
+    }
+  });
+  card.addEventListener('click', function (e) {
+    if (e.target.localName != "input") {
+      rotateCard(card, translationArray);
+    }
+  });
+});
+function rotateCard(card, translationArray) {
+  var indicator = card.querySelector('.indicator');
+  var input = card.querySelector('input');
+  var inputValue = input.value.trim().toLowerCase();
+  var trimmedArr = translationArray.map(function (item) {
+    return item.trim();
+  });
+  if (trimmedArr.includes(inputValue)) {
+    indicator.classList.remove('show');
+    if (input.disabled == false) {
+      increaseProgress();
+    }
+    input.disabled = true;
+    if (card.classList.contains("rotate")) {
+      card.classList.remove('rotate');
+    } else {
+      card.classList.add('rotate');
+    }
+  } else {
+    indicator.classList.add('show');
+  }
+}
+function increaseProgress() {
+  progressWidth = progressWidth + 100 / cardsCount;
+  progress.style.width = "".concat(progressWidth, "%");
+  if (progressWidth > 99) {
+    appNote.classList.add('display');
+    appNote.querySelector('#app-note-window').classList.add('display');
+    appNote.querySelector('#app-note-content').innerHTML = "Congratulations!";
+  }
+}
+
+/***/ }),
+
+/***/ "./resources/js/lang.js":
+/*!******************************!*\
+  !*** ./resources/js/lang.js ***!
+  \******************************/
+/***/ (() => {
+
+var addLangBtn = document.getElementById("add_lang_opener");
+if (addLangBtn) {
+  addLangBtn.addEventListener('click', function () {
+    var addLangBlockWrapper = document.getElementById("add_lang_block_wrapper");
+    addLangBlockWrapper.classList.remove('hidden');
+    addLangBtn.classList.add('hidden');
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/menu-panel.js":
+/*!************************************!*\
+  !*** ./resources/js/menu-panel.js ***!
+  \************************************/
+/***/ (() => {
+
+var menuBtn = document.getElementById("top-panel-menu-opener");
+var menuPanel = document.getElementById("menu-panel");
+var menuBtnCloser = document.getElementById("menu-panel-closer");
+if (menuBtn) {
+  menuBtn.addEventListener('click', function () {
+    if (menuPanel.classList.contains("opened")) {
+      menuPanel.classList.remove('opened');
+    } else {
+      menuPanel.classList.add('opened');
+    }
+  });
+}
+if (menuBtnCloser) {
+  menuBtnCloser.addEventListener('click', function () {
+    if (menuPanel.classList.contains("opened")) {
+      menuPanel.classList.remove('opened');
+    } else {
+      menuPanel.classList.add('opened');
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/notification.js":
+/*!**************************************!*\
+  !*** ./resources/js/notification.js ***!
+  \**************************************/
+/***/ (() => {
+
+var notification = document.getElementById("request-validation-errors");
+var closeNoteBtn = document.getElementById("close-note-btn");
+if (closeNoteBtn) {
+  closeNoteBtn.addEventListener('click', function () {
+    notification.classList.add('hidden');
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/phrase.js":
+/*!********************************!*\
+  !*** ./resources/js/phrase.js ***!
+  \********************************/
+/***/ (() => {
+
+var addPhraseBtn = document.getElementById("add_phrase_opener");
+if (addPhraseBtn) {
+  addPhraseBtn.addEventListener('click', function () {
+    var addPhraseBlockWrapper = document.getElementById("add_phrase_block_wrapper");
+    addPhraseBlockWrapper.classList.remove('hidden');
+    addPhraseBtn.classList.add('hidden');
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/translation.js":
+/*!*************************************!*\
+  !*** ./resources/js/translation.js ***!
+  \*************************************/
+/***/ (() => {
+
+var allOpeners = document.querySelectorAll(".translation-list-item__opener");
+var allInfoForms = document.querySelectorAll(".translation-list-item__info");
+allOpeners.forEach(function (opener) {
+  opener.addEventListener('click', function (e) {
+    var openerId = e.target.id;
+    var langCode = openerId.replace('opener_', '');
+    var translationFormInfo = document.getElementById("transation-form-info-".concat(langCode));
+    this.classList.add('hidden');
+    translationFormInfo.classList.remove('hidden');
+    allInfoForms.forEach(function (infoForm) {
+      if (infoForm.id.replace('transation-form-info-', '') != langCode) {
+        infoForm.classList.add('hidden');
+      }
+    });
+    allOpeners.forEach(function (op) {
+      if (op.id != openerId && op.classList.contains("hidden")) {
+        op.classList.remove('hidden');
+      }
+    });
+  });
+});
 
 /***/ }),
 
@@ -22742,6 +22962,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/auth/app.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/auth/app.scss ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -23138,6 +23371,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"axios","version":"0.21.4","de
 /******/ 	__webpack_require__.O(undefined, ["css/auth/app","css/admin/app","css/site/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	__webpack_require__.O(undefined, ["css/auth/app","css/admin/app","css/site/app"], () => (__webpack_require__("./resources/sass/site/app.scss")))
 /******/ 	__webpack_require__.O(undefined, ["css/auth/app","css/admin/app","css/site/app"], () => (__webpack_require__("./resources/sass/admin/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/auth/app","css/admin/app","css/site/app"], () => (__webpack_require__("./resources/sass/auth/app.scss")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/auth/app","css/admin/app","css/site/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	

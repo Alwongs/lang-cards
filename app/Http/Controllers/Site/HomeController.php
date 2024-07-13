@@ -4,13 +4,23 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Language;
+use App\Models\Phrase;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $header = "Header";
+        $langCount = Language::count();
+        $phrases = Phrase::with('translations')->get();
 
-        return view('home', compact('header'));
+        $phrasesHaveEmptyTranslations = [];
+        foreach ($phrases as $phrase) {
+            if (count($phrase->translations) < $langCount) {
+                $phrasesHaveEmptyTranslations[] = $phrase;
+            }
+        }
+
+        return view('home', compact('phrasesHaveEmptyTranslations'));
     }
 }

@@ -1,0 +1,39 @@
+.phrase-list {
+    // border: 1px solid red;
+    // width: 300px;
+    margin: 0 auto;
+}
+
+.phrase-list-item {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+
+    &__phrase-key {
+        flex: 0 0 40px;
+        text-transform: uppercase;
+    }
+    &__default-translation {
+        flex: 1 1 auto;
+        text-transform: capitalize;
+    }
+    &__action {
+        flex: 0 0 50px;
+    }
+}
+
+.add-phrase-block {
+    // border: 1px solid red;
+    padding-top: 30px;
+}
+
+.add-phrase-opener {
+    &.hidden {
+        display: none;
+    }    
+}
+.add-phrase-block-wrapper {
+    &.hidden {
+        display: none;
+    }
+}

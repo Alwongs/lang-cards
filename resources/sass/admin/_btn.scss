@@ -1,0 +1,72 @@
+.btn-block {
+    // border: 1px solid blue;
+    display: flex;
+    &.flex-center {
+        justify-content: center;
+    }
+}
+
+.btn {
+    border: 1px solid rgb(44, 143, 44);
+    color: rgb(2, 85, 2);
+    font-size: 20px;
+    width: 140px;
+    min-width: fit-content;
+    padding: 0 10px;
+    height: 50px;
+
+}
+
+.btn {
+    transition: 0.2s;
+    &.btn-danger {
+        border: 1px solid red;
+        color: red;
+        &:hover {
+            background-color: red;
+            color: white;        
+        }
+    }
+    &.btn-info {
+        border: 1px solid #005586;
+        color: #005586;
+        &:hover {
+            background-color: #005586;
+            color: white;        
+        }        
+    }  
+    &.btn-success {
+        border: 1px solid rgb(44, 143, 44);
+        color: rgb(44, 143, 44);
+        &:hover {
+            background-color: rgb(44, 143, 44);
+            color: white;        
+        }        
+    }         
+}
+
+.btn-link {
+    transition: 0.2s;
+    color: #005586; 
+    &.btn-danger {
+        color: red;
+        &:hover {
+            background-color: red;
+            color: white;        
+        }
+    }
+    &.btn-info {
+        color: #005586;
+        &:hover {
+            background-color: #005586;
+            color: white;        
+        }        
+    }  
+    &.btn-success {
+        color: rgb(44, 143, 44);
+        &:hover {
+            background-color: rgb(44, 143, 44);
+            color: white;        
+        }        
+    }         
+}

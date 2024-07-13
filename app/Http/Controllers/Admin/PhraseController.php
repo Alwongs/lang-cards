@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Phrase;
+use App\Models\Language;
+use App\Models\Translation;
 
 class PhraseController extends Controller
 {
@@ -15,7 +17,7 @@ class PhraseController extends Controller
      */
     public function index()
     {
-        $phrases = Phrase::with('translation')->get();
+        $phrases = Phrase::with('translations')->orderBy('default_translation')->get();
 
         return view('pages.admin.phrases.manage', compact('phrases'));
     }
@@ -38,7 +40,25 @@ class PhraseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $phrase = $request->all();
+        $phrase_key_array = explode(' ', $phrase['default_translation']);
+        $phrase['phrase_key']          = strtolower(implode('_', $phrase_key_array));
+        $phrase['default_translation'] = strtolower($phrase['default_translation']);
+        $created_phrase = Phrase::create($phrase);
+
+        $lang_en = Language::where('code', 'en')->first();
+        if (empty($lang_en)) {
+            $language['code'] = 'en';
+            $language['name'] = 'English';
+            $lang_en = Language::create($language);
+        }
+
+        $translation['translation'] = $phrase['default_translation'];
+        $translation['phrase_id'] = $created_phrase->id;
+        $translation['language_id'] = $lang_en->id;
+        Translation::create($translation);
+
+        return redirect()->back()->with('info', 'Phrase created');
     }
 
     /**
@@ -47,9 +67,34 @@ class PhraseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Phrase $phrase)
     {
-        //
+        $languages = Language::all();
+
+        // if (count($languages) == 0) {
+        //     $language['code'] = 'EN';
+        //     $language['name'] = 'English';
+        //     $created_language = Language::create($language);
+        //     $languages = Language::all();
+
+        //     $translation['translation'] = $phrase->default_translation;
+        //     $translation['phrase_id'] = $phrase->id;
+        //     $translation['language_id'] = $created_language->id;
+        //     Translation::create($translation);
+        // }
+
+        $phrase_translations = Translation::where('phrase_id', $phrase->id)->get();
+
+        foreach($languages as &$lang) {
+            foreach($phrase_translations as $translation) {
+                if ($lang->id == $translation->language_id) {
+                    $lang->phrase_translation = $translation->translation;
+                    $lang->translation_id = $translation->id;
+                }
+            }
+        }
+
+        return view('pages.admin.translations.manage', compact('phrase', 'languages'));
     }
 
     /**
@@ -81,8 +126,10 @@ class PhraseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Phrase $phrase)
     {
-        //
+        $phrase->delete();
+
+        return redirect()->back()->with('info', 'Phrase deleted');
     }
 }

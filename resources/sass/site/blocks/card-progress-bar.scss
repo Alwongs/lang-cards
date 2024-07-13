@@ -1,0 +1,12 @@
+.card-progress-bar {
+    width: 600px;
+    margin: 0 auto;
+    height: 20px;
+    border: 1px solid green;
+    margin-bottom: 30px;
+    &__fill {
+        height: 100%;
+        background-color: green;
+        width: 0;
+    }
+}

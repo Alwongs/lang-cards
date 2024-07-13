@@ -773,9 +773,8 @@ legend {
 }
 @media (max-width: 767px) {
   .select-languages {
-    border: 1px solid red;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 10%;
   }
 }
 .select-languages__title {
@@ -809,6 +808,11 @@ legend {
   width: 120px;
   color: #208179;
 }
+@media (max-width: 767px) {
+  .select-languages select {
+    width: 100%;
+  }
+}
 .select-languages__btn {
   background-color: #208179;
   color: white;
@@ -818,6 +822,12 @@ legend {
 }
 .select-languages__btn:hover {
   background-color: #2ba198;
+}
+@media (max-width: 767px) {
+  .select-languages__btn {
+    width: 150px;
+    height: 50px;
+  }
 }
 
 .card-progress-bar {

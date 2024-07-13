@@ -32,6 +32,9 @@
     label {
         font-size: 15px;
         margin-right: 12px;
+        @media (max-width: $mobile-max) {
+            display: block;
+        }  
     }
     select {
         font-size: 18px;

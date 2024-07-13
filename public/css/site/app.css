@@ -622,6 +622,14 @@ legend {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.4);
 }
+@media (max-width: 767px) {
+  .card__input-block input::-moz-placeholder {
+    font-size: 18px;
+  }
+  .card__input-block input::placeholder {
+    font-size: 18px;
+  }
+}
 .card__input-block input:focus {
   border-bottom: 1px solid white;
 }
@@ -633,6 +641,11 @@ legend {
   right: 0;
   bottom: 0;
   padding: 3px 8px;
+}
+@media (max-width: 767px) {
+  .card__input-chek-answer {
+    font-size: 12px;
+  }
 }
 
 .flip-left .card .back {
@@ -782,6 +795,11 @@ legend {
 .select-languages label {
   font-size: 15px;
   margin-right: 12px;
+}
+@media (max-width: 767px) {
+  .select-languages label {
+    display: block;
+  }
 }
 .select-languages select {
   font-size: 18px;

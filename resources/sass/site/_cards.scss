@@ -109,6 +109,9 @@
     input::placeholder {
         font-size: 14px;
         color: rgba(255, 255, 255, 0.4);
+        @media (max-width: $mobile-max) {  
+            font-size: 18px;
+        } 
     }
     input:focus {
         border-bottom: 1px solid white;
@@ -121,6 +124,9 @@
     right: 0;
     bottom: 0;
     padding: 3px 8px;
+    @media (max-width: $mobile-max) {  
+        font-size: 12px;
+    } 
 }
 
 .flip-left .card .back {

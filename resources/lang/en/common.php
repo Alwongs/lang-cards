@@ -27,5 +27,7 @@ return [
     'phrases_have_empty_translations' => 'Phrases have empty translations',
     'type_translation' => 'Type a translation',
     'wrong_translation' => 'Wrong translation',
-    'congratulation' => 'congratrulation'
+    'congratulation' => 'congratrulation',
+    'click_to_add_transaltion' => 'Click to add translations',
+    'select_phrase_to_add_translations' => 'Select a phrase to add translations'
 ];

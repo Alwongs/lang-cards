@@ -668,6 +668,13 @@ legend {
   display: none;
 }
 
+.phrase-list-title {
+  color: #466a80;
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
 .phrase-list {
   margin: 0 auto;
 }
@@ -684,6 +691,13 @@ legend {
 .phrase-list-item__default-translation {
   flex: 1 1 auto;
   text-transform: capitalize;
+  font-weight: 600;
+}
+.phrase-list-item__default-translation a {
+  color: #01598b;
+}
+.phrase-list-item__default-translation a:hover {
+  color: #0183ce;
 }
 .phrase-list-item__action {
   flex: 0 0 50px;

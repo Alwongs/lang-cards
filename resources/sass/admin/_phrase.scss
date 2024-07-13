@@ -1,3 +1,9 @@
+.phrase-list-title {
+    color: #466a80;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
 .phrase-list {
     // border: 1px solid red;
     // width: 300px;
@@ -16,7 +22,14 @@
     &__default-translation {
         flex: 1 1 auto;
         text-transform: capitalize;
-    }
+        font-weight: 600;
+        a {
+            color: #01598b;
+        }
+        a:hover {
+            color: #0183ce;
+        }
+    }   
     &__action {
         flex: 0 0 50px;
     }

@@ -34,7 +34,7 @@
                             type="text" 
                             name="translation" 
                             value="{{ $lang->phrase_translation }}" 
-                            required       
+                            required  
                         />
                     </div>
                     <div class="translation-list-item__action" >

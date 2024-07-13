@@ -5711,6 +5711,7 @@ allOpeners.forEach(function (opener) {
     var translationFormInfo = document.getElementById("transation-form-info-".concat(langCode));
     this.classList.add('hidden');
     translationFormInfo.classList.remove('hidden');
+    translationFormInfo.querySelector('input').focus();
     allInfoForms.forEach(function (infoForm) {
       if (infoForm.id.replace('transation-form-info-', '') != langCode) {
         infoForm.classList.add('hidden');

@@ -52,7 +52,7 @@
     @endforeach
 
     <div class="btn-block">
-        <a href="{{ url()->previous() }}" class="btn btn-info">{{ __("common.back") }}</a>
+        <a href="{{ route('phrases.index') }}" class="btn btn-info">{{ __("common.back") }}</a>
     </div>
     
   

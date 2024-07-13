@@ -29,5 +29,6 @@ return [
     'wrong_translation' => 'Wrong translation',
     'congratulation' => 'congratrulation',
     'click_to_add_transaltion' => 'Click to add translations',
-    'select_phrase_to_add_translations' => 'Select a phrase to add translations'
+    'select_phrase_to_add_translations' => 'Select a phrase to add translations',
+    'back' => 'back'
 ];

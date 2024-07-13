@@ -615,11 +615,11 @@ legend {
   font-size: 14px;
 }
 .card__input-block input::-moz-placeholder {
-  font-size: 16px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.4);
 }
 .card__input-block input::placeholder {
-  font-size: 16px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.4);
 }
 .card__input-block input:focus {

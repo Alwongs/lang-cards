@@ -10,8 +10,10 @@
     @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
         gap: 20px;
     }           
-    @media (max-width: $mobile-max) {     
-        gap: 50px;
+    @media (max-width: $mobile-max) {
+        border: 1px solid red;
+        flex-wrap: wrap;
+        gap: 10px;
     }  
 
     &__title {
@@ -22,7 +24,10 @@
 
     &__select-block {
         flex: 0 1 200px;
-
+        @media (max-width: $mobile-max) {
+            flex: 0 0 45%;
+            margin-bottom: 20px;
+        }  
     }
     label {
         font-size: 15px;
@@ -33,7 +38,7 @@
         font-weight: 600;
         border-bottom: 1px solid #208179;
         height: 30px;
-        width: 130px;
+        width: 120px;
         color: #208179;
     }
     &__btn {

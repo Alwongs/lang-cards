@@ -17,6 +17,7 @@ document.querySelectorAll('.card').forEach((card) => {
             rotateCard(card, translationArray);
         }
     });
+    
 });
 
 function rotateCard(card, translationArray) {

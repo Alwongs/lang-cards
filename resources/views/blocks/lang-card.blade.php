@@ -20,6 +20,7 @@
                     type="text" 
                     placeholder="{{ __("common.type_translation") }}"
                 />
+                <p id="card-check-answer" class="card__input-chek-answer">{{ __("common.check") }}</p>
             </div>
         </div>
 
